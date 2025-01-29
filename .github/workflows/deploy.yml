@@ -4,29 +4,31 @@ on:
     branches:
       - main
 permissions:
-  id-token: write  
-  
+  id-token: write  # Important for OIDC authentication
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
+      # Login to Azure
       - name: Login to Azure
         uses: azure/login@v1
         with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-            enable-AzPSSession: false
-            auth-type: SERVICE_PRINCIPAL
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: false
+          auth-type: SERVICE_PRINCIPAL
 
+      # Change to the correct directory and deploy
       - name: Deploy to Azure Web App
         run: |
-          cd "Student Assignment Tracker/views" 
+          cd "Student Assignment Tracker/views"  # Navigate to the folder with your app files
           az webapp up --name ${{ secrets.AZURE_APP_NAME }} \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
             --plan ${{ secrets.AZURE_APP_SERVICE_PLAN }} \
-            --runtime "php|8.0"  
+            --runtime "php|8.0"  # Specify runtime stack if using PHP
