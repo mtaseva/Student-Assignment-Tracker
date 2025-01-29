@@ -31,6 +31,6 @@ jobs:
           az webapp up --name student-assignment-tracker-app \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
             --plan ${{ secrets.AZURE_APP_SERVICE_PLAN }} \
-            --runtime "PHP:8.0" 
-            --os-type Linux
+            --runtime "PHP:8.0" \
+            --os-type Linux \
             --location canadacentral
