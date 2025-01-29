@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top, #213555,#2b4b70,#3E5879, #D8C4B6);
+    background-position: center;
+    background-size: cover;
+
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo{
+    color: #070F2B;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px
+    
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #070F2B;
+}
+
+h2{
+    margin-bottom: 16px;
+    text-shadow: 1px 1px 2px white, 0 0 25px blue, 0 0 5px darkblue
+}
+
+.content{
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+    /* display: flex;
+    flex-flow: row;
+    justify-content: space-between; Adjust spacing between the divs */
+    gap: 100px; 
+    padding: 4ch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form{
+    margin-top: 5ch;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    max-height: 320px;
+    color: white;
+    display: flex;
+    background-blend-mode: multiply; /* Blend the background with other layers */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    flex: 1; /* Optional: Make both divs equal in size */
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+
+    background-color: #ffffff; /* Green background */
+    color: rgb(20, 34, 78); /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Space inside the button */
+    font-size: 10px; /* Text size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+}
+
+.button:active {
+    background-color: #1c4081; /* Darker green when clicked */
+    transform: translateY(0); /* Reset lift effect */
+}
+
+/* Focus Outline */
+.button:focus {
+    outline: 2px solid #80d8ff; /* Highlight for accessibility */
+    outline-offset: 2px;
+}
+button:hover {
+    background-color: #78a9dd;
+}
+
+span {
+    text-shadow: 1px 1px 2px white
+  }
+  
+  div .form{
+    box-shadow: 10px 10px 5px #070F2B;
+  }
+
+
+.table-container {
+    overflow-y: auto;
+    max-height: 500px;  /* Adjust height as needed */
+    margin-top: 20px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
