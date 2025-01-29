@@ -25,4 +25,4 @@ jobs:
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
         run: |
-          az webapp up --name student-tracker-web --resource-group StudentAssignmentTrackerRG --plan ASP-StudentAssignmentTrackerRG-b7e3
+          az webapp up --name student-tracker-web --resource-group StudentAssignmentTrackerRG --plan 'ASP-StudentAssignmentTrackerRG-b7e3 (F1: 1)'
