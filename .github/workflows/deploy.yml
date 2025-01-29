@@ -1,0 +1,29 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Log in to Azure using the Service Principal
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # Deploy to Azure Web App
+      - name: Deploy to Azure Web App
+        run: |
+          az webapp up --name student-tracker-web --resource-group StudentAssignmentTrackerRG --plan ASP-StudentAssignmentTrackerRG-b7e3 (F1: 1)
