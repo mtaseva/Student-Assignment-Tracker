@@ -5,6 +5,7 @@ on:
       - main
 permissions:
   id-token: write  # Important for OIDC authentication
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,4 +26,8 @@ jobs:
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
         run: |
-          az webapp up --name student-tracker-web --resource-group StudentAssignmentTrackerRG --plan 'ASP-StudentAssignmentTrackerRG-b7e3 (F1: 1)'
+          cd "Student Assignment Tracker/views" # Navigate to the folder with your app files
+          az webapp up --name ${{ secrets.AZURE_APP_NAME }} \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --plan ${{ secrets.AZURE_APP_SERVICE_PLAN }} \
+            --runtime "php|8.0"  # Specify runtime stack if using PHP
