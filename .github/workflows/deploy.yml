@@ -31,4 +31,4 @@ jobs:
           az webapp up --name ${{ secrets.AZURE_APP_NAME }} \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
             --plan ${{ secrets.AZURE_APP_SERVICE_PLAN }} \
-            --runtime "php|8.0"  # Specify runtime stack if using PHP
+            --runtime "PHP|8.0"  # Specify runtime stack if using PHP
