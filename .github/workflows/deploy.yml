@@ -1,30 +1,25 @@
 name: Azure Deployment
-
 on:
   push:
     branches:
       - main
-
 permissions:
-  id-token: write
-
+  id-token: write  # Important for OIDC authentication
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      # Log in to Azure using the Service Principal
+      
+      # Log in to Azure using OIDC
       - name: Log in to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}       # Azure App registration client ID
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}       # Azure Directory tenant ID
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} # Azure Subscription ID
 
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
